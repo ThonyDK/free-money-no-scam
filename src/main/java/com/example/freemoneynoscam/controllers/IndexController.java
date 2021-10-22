@@ -1,5 +1,6 @@
 package com.example.freemoneynoscam.controllers;
 
+import com.example.freemoneynoscam.checkemail.CheckEmail;
 import connector.JDBC;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,6 +23,10 @@ public class IndexController {
     public String userEmail(WebRequest wr){
         String parameter = wr.getParameter("test-input");
         System.out.println(parameter);
+        if (!CheckEmail.CheckEmail(parameter)) {
+
+            return "redirect:/";
+        }
         connection.connectionTest(parameter);
         return "index";
     }

@@ -33,7 +33,6 @@ public class JDBC {
             System.out.println(e.getMessage());
         }
         return result;
-
     }
 }
 
