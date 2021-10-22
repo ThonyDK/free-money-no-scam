@@ -8,8 +8,11 @@ import org.springframework.web.context.request.WebRequest;
 
 @Controller
 public class IndexController {
+    JDBC connection = new JDBC();
+
     @GetMapping("/")
     public String index(){
+        connection.getList();
         return "index";
     }
     //postmapping er hvis vi skal have data som personlig oplysninger submittet fra hjemmeside via springboot og
@@ -19,7 +22,6 @@ public class IndexController {
     public String userEmail(WebRequest wr){
         String parameter = wr.getParameter("test-input");
         System.out.println(parameter);
-        JDBC connection = new JDBC();
         connection.connectionTest(parameter);
         return "index";
     }
@@ -31,5 +33,6 @@ public class IndexController {
         //connection.connectionTest();
         return "index";
     }
+
 
 }
