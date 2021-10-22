@@ -14,6 +14,7 @@ public class IndexController {
     }
     //postmapping er hvis vi skal have data som personlig oplysninger submittet fra hjemmeside via springboot og
     //videre til database.
+    //OBS. For at få vist rigtig indhold Benyt Localhost:8080/test
     @PostMapping("/test")
     public String userEmail(WebRequest wr){
         String parameter = wr.getParameter("test-input");
@@ -30,5 +31,5 @@ public class IndexController {
         //connection.connectionTest();
         return "index";
     }
-    //Helloworld
+
 }
